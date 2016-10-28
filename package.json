@@ -1,6 +1,6 @@
 {
   "name": "http-link-header",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Parse & format HTTP link headers according to RFC 5988",
   "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
   "license": "MIT",
