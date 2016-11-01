@@ -11,7 +11,7 @@ suite( 'RFC 5988', function() {
       rel: 'previous',
       title: 'previous; chapter'
     }]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
@@ -22,7 +22,7 @@ suite( 'RFC 5988', function() {
       rel: 'previous',
       title: 'previous, chapter'
     }]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
@@ -32,7 +32,7 @@ suite( 'RFC 5988', function() {
       { uri: 'example.com', title: 'example, the second' },
       { uri: 'example-01.com', title: 'alternate; version' },
     ]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
@@ -42,7 +42,7 @@ suite( 'RFC 5988', function() {
       { uri: 'example.com', title: 'example; the second' },
       { uri: 'example-01.com', title: 'alternate, version' },
     ]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 

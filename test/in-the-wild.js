@@ -13,7 +13,7 @@ suite( 'Link Headers In the Wild', function() {
       uri: 'https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf',
       rel: 'terms-of-service'
     }]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 

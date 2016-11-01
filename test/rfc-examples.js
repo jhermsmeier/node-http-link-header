@@ -12,7 +12,7 @@ suite( 'RFC 5988', function() {
       rel: 'previous',
       title: 'previous chapter'
     }]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
@@ -21,7 +21,7 @@ suite( 'RFC 5988', function() {
     // with the extension relation type "http://example.net/foo".
     var link = Link.parse( '</>; rel="http://example.net/foo"' )
     var refs = [ { uri: '/', rel: 'http://example.net/foo' } ]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
@@ -39,7 +39,7 @@ suite( 'RFC 5988', function() {
       rel: 'next',
       'title*': { language: 'de', encoding: null, value: 'nächstes Kapitel' }
      }]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
@@ -52,7 +52,7 @@ suite( 'RFC 5988', function() {
       uri: 'http://example.org/',
       rel: 'start http://example.net/relation/other'
     }]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 

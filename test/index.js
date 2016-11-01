@@ -7,21 +7,21 @@ suite( 'HTTP Link Header', function() {
   test( 'standalone link (without rel)', function() {
     var link = Link.parse( '<example.com>' )
     var refs = [ { uri: 'example.com' } ]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
   test( 'link with rel', function() {
     var link = Link.parse( '<example.com>; rel=example' )
     var refs = [ { uri: 'example.com', rel: 'example' } ]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
   test( 'link with quoted rel', function() {
     var link = Link.parse( '<example.com>; rel="example"' )
     var refs = [ { uri: 'example.com', rel: 'example' } ]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
@@ -31,7 +31,7 @@ suite( 'HTTP Link Header', function() {
       { uri: 'example.com', rel: 'example' },
       { uri: 'example-01.com', rel: 'alternate' },
     ]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
@@ -41,7 +41,7 @@ suite( 'HTTP Link Header', function() {
       { uri: 'example.com', rel: 'example' },
       { uri: 'example-01.com', rel: 'alternate' },
     ]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
@@ -52,7 +52,7 @@ suite( 'HTTP Link Header', function() {
     var refs = [
       { uri: 'example.com', rel: 'example' },
     ]
-    console.log( inspect( link ) )
+    // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
