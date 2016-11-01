@@ -15,6 +15,7 @@
   "main": "lib/link.js",
   "dependencies": {},
   "devDependencies": {
+    "matcha": "~0.7.0",
     "mocha": "~3.1.0"
   },
   "homepage": "https://github.com/jhermsmeier/node-http-link-header",
@@ -29,6 +30,7 @@
     "test": "test"
   },
   "scripts": {
+    "benchmark": "matcha --reporter plain",
     "test": "mocha --ui tdd"
   }
 }
