@@ -28,4 +28,10 @@ suite( 'API', function() {
     assert.deepEqual( link.has( 'next' ), true )
   })
 
+  test( 'toString()', function() {
+    var link = Link.parse( '<https://acme-staging.api.letsencrypt.org/acme/new-authz>;rel="next", <https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf>;rel="terms-of-service"' )
+    var expected = '<https://acme-staging.api.letsencrypt.org/acme/new-authz>; rel="next", <https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf>; rel="terms-of-service"'
+    assert.equal( link.toString(), expected )
+  })
+
 })
