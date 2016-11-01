@@ -14,6 +14,15 @@ Parse & format HTTP link headers according to [RFC 5988]
 $ npm install --save http-link-header
 ```
 
+## Status
+
+It can currently parse (almost) everything according to the RFC,
+with exception of a few cases where control chars show up in attribute values:
+
+- attribute contains semicolon
+- attribute contains comma
+- multiple links contain mixed comma & semicolon
+
 ## Usage
 
 ```js
@@ -35,11 +44,16 @@ var link = LinkHeader.parse(
 ```
 
 ```js
+link.rel( 'alternate' )
+> { uri: 'example-01.com', rel: 'alternate', title: 'Alternate Example Domain' }
+```
+
+```js
 link.has( 'rel', 'alternate' )
 > true
 ```
 
 ```js
-link.get( 'rel', 'alternate' )
+link.get( 'title', 'alternate' )
 > { uri: 'example-01.com', rel: 'alternate', title: 'Alternate Example Domain' }
 ```
