@@ -33,11 +33,11 @@ suite( 'RFC 5988', function() {
     var refs = [{
       uri: '/TheBook/chapter2',
       rel: 'previous',
-      title: { language: 'de', encoding: null, value: 'letztes Kapitel' }
+      'title*': { language: 'de', encoding: null, value: 'letztes Kapitel' }
     }, {
       uri: '/TheBook/chapter4',
       rel: 'next',
-      title: { language: 'de', encoding: null, value: 'nächstes Kapitel' }
+      'title*': { language: 'de', encoding: null, value: 'nächstes Kapitel' }
      }]
     console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )

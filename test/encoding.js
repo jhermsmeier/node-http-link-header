@@ -9,7 +9,11 @@ suite( 'Encodings', function() {
     var refs = [{
       uri: '/risk-mitigation',
       rel: 'start',
-      title: { language: 'en', encoding: null, value: '①⓫⅓㏨♳𝄞λ' }
+      'title*': {
+        language: 'en',
+        encoding: null,
+        value: '①⓫⅓㏨♳𝄞λ'
+      },
     }]
     console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
@@ -20,7 +24,11 @@ suite( 'Encodings', function() {
     var refs = [{
       uri: '/risk-mitigation',
       rel: 'start',
-      title: { language: 'cn', encoding: 'gb2312', value: '%C6%F3%20%D2%B5%20%B2%C3%20%D4%B1%20%B7%E7%20%CF%D5%20%B9%E6%20%B1%DC%30%34%3A%33%37%3A%32%31' }
+      'title*': {
+        language: 'cn',
+        encoding: 'gb2312',
+        value: '%C6%F3%20%D2%B5%20%B2%C3%20%D4%B1%20%B7%E7%20%CF%D5%20%B9%E6%20%B1%DC%30%34%3A%33%37%3A%32%31'
+      },
     }]
     console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
