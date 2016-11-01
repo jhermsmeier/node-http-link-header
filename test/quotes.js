@@ -27,20 +27,20 @@ suite( 'RFC 5988', function() {
   })
 
   test( 'multiple links with mixed comma & semicolon', function() {
-    var link = Link.parse( '<example.com>; title="example, the second", <example-01.com>; title="alternate; version"' )
+    var link = Link.parse( '<example.com>; rel="example, the second", <example-01.com>; rel="alternate; version"' )
     var refs = [
-      { uri: 'example.com', title: 'example, the second' },
-      { uri: 'example-01.com', title: 'alternate; version' },
+      { uri: 'example.com', rel: 'example, the second' },
+      { uri: 'example-01.com', rel: 'alternate; version' },
     ]
     // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
   test( 'multiple links with mixed comma & semicolon', function() {
-    var link = Link.parse( '<example.com>; title="example; the second", <example-01.com>; title="alternate, version"' )
+    var link = Link.parse( '<example.com>; rel="example; the second", <example-01.com>; rel="alternate, version"' )
     var refs = [
-      { uri: 'example.com', title: 'example; the second' },
-      { uri: 'example-01.com', title: 'alternate, version' },
+      { uri: 'example.com', rel: 'example; the second' },
+      { uri: 'example-01.com', rel: 'alternate, version' },
     ]
     // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
