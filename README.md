@@ -46,11 +46,17 @@ link.has( 'rel', 'alternate' )
 **Retrieve a reference with a given attribute & value**
 
 ```js
-link.get( 'title', 'alternate' )
-> { uri: 'example-01.com', rel: 'alternate', title: 'Alternate Example Domain' }
+link.get( 'rel', 'alternate' )
+> [
+  { uri: 'example-01.com', rel: 'alternate', title: 'Alternate Example Domain' }
+]
+```
+```js
 // Shorthand for `rel` attributes
 link.rel( 'alternate' )
-> { uri: 'example-01.com', rel: 'alternate', title: 'Alternate Example Domain' }
+> [
+  { uri: 'example-01.com', rel: 'alternate', title: 'Alternate Example Domain' }
+]
 ```
 
 **Set references**
@@ -66,15 +72,32 @@ link.set({ rel: 'next', uri: 'http://example.com/next' })
 }
 ```
 
-NOTE: According to [RFC 5988] only one reference with the same `rel` attribute is allowed,
-so the following effectively replaces an existing reference:
+**Parse multiple headers**
 
-```js
-link.set({ uri: 'http://not-example.com', rel: 'example' })
+```
+var links = new LinkHeader()
+
+links.parse( '<example.com>; rel="example"; title="Example Website"' )
 > Link {
   refs: [
-    { uri: 'http://not-example.com', rel: 'example' },
+    { uri: 'example.com', rel: 'example', title: 'Example Website' },
+  ]
+}
+
+links.parse( '<example-01.com>; rel="alternate"; title="Alternate Example Domain"' )
+> Link {
+  refs: [
+    { uri: 'example.com', rel: 'example', title: 'Example Website' },
     { uri: 'example-01.com', rel: 'alternate', title: 'Alternate Example Domain' },
+  ]
+}
+
+links.parse( '<example-02.com>; rel="alternate"; title="Second Alternate Example Domain"' )
+> Link {
+  refs: [
+    { uri: 'example.com', rel: 'example', title: 'Example Website' },
+    { uri: 'example-01.com', rel: 'alternate', title: 'Alternate Example Domain' },
+    { uri: 'example-02.com', rel: 'alternate', title: 'Second Alternate Example Domain' },
   ]
 }
 ```

@@ -48,7 +48,7 @@ suite( 'HTTP Link Header', function() {
   // The "rel" parameter MUST NOT appear more than once in a given
   // link-value; occurrences after the first MUST be ignored by parsers.
   test( 'multiple links with same rel', function() {
-    var link = Link.parse( '<example.com>; rel="example", <example-01.com>; rel="example"' )
+    var link = Link.parse( '<example.com>; rel="example"; rel="invalid"' )
     var refs = [
       { uri: 'example.com', rel: 'example' },
     ]
