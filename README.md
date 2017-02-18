@@ -74,7 +74,7 @@ link.set({ rel: 'next', uri: 'http://example.com/next' })
 
 **Parse multiple headers**
 
-```
+```js
 var links = new LinkHeader()
 
 links.parse( '<example.com>; rel="example"; title="Example Website"' )
