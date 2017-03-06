@@ -17,4 +17,25 @@ suite( 'Link Headers In the Wild', function() {
     assert.deepEqual( link.refs, refs )
   })
 
+  test( 'GitHub pagination links', function() {
+    var link = Link.parse( '<https://api.github.com/user/repos?page=3&per_page=100>; rel="next", <https://api.github.com/user/repos?page=50&per_page=100>; rel="last"' )
+    var refs = [{
+      uri: 'https://api.github.com/user/repos?page=3&per_page=100',
+      rel: 'next',
+      params: {
+        page: "3",
+        per_page: "100",
+      }
+    }, {
+      uri: 'https://api.github.com/user/repos?page=50&per_page=100',
+      rel: 'last',
+      params: {
+        page: "50",
+        per_page: "100",
+      }
+    }]
+    // console.log( inspect( link ) )
+    assert.deepEqual( link.refs, refs )
+  })
+
 })
