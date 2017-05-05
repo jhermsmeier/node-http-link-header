@@ -56,4 +56,12 @@ suite( 'HTTP Link Header', function() {
     assert.deepEqual( link.refs, refs )
   })
 
+  test( 'link with multiple rels', function() {
+    var link = Link.parse( '<https://webmention.rocks/test/10/webmention>; rel="webmention somethingelse"' )
+    assert.deepEqual( link.get( 'rel', 'webmention' )[0], {
+      uri: 'https://webmention.rocks/test/10/webmention',
+      rel: 'webmention somethingelse'
+    })
+  })
+
 })
