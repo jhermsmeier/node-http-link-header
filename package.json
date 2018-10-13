@@ -1,13 +1,15 @@
 {
   "name": "http-link-header",
   "version": "0.8.0",
-  "description": "Parse & format HTTP link headers according to RFC 5988",
+  "description": "Parse & format HTTP link headers according to RFC 8288",
   "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
   "license": "MIT",
   "keywords": [
     "rfc5988",
+    "rfc8288",
     "rfc",
     "5988",
+    "8288",
     "http",
     "link",
     "header"
