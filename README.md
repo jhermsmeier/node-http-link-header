@@ -4,9 +4,10 @@
 [![npm downloads](https://img.shields.io/npm/dm/http-link-header.svg?style=flat-square)](https://npmjs.com/http-link-header)
 [![build status](https://img.shields.io/travis/jhermsmeier/node-http-link-header.svg?style=flat-square)](https://travis-ci.org/jhermsmeier/node-http-link-header)
 
-Parse & format HTTP link headers according to [RFC 5988]
+Parse & format HTTP link headers according to [RFC 8288]
 
 [RFC 5988]: https://tools.ietf.org/html/rfc5988
+[RFC 8288]: https://tools.ietf.org/html/rfc8288
 
 ## Install via [npm](https://npmjs.com)
 
@@ -116,7 +117,9 @@ $ npm run benchmark
 ```
 
 ```
-http-link-header
-  parse .......................................... 204,355 op/s
-  toString ....................................... 485,465 op/s
+# http-link-header .parse() ⨉ 100000
+ok ~773 ms (0 s + 772540048 ns)
+
+# http-link-header #toString() ⨉ 100000
+ok ~92 ms (0 s + 91910128 ns)
 ```
