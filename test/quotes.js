@@ -71,14 +71,14 @@ suite( 'Attributes', function() {
   })
 
   test( 'format attr value with double quote', function() {
-    var link = new Link().set({ uri: 'example.com', rel: 'example" the single quote' })
-    var expected = '<example.com>; rel="example%22 the single quote"'
+    var link = new Link().set({ uri: 'example.com', rel: 'example', title: 'example" the single quote' })
+    var expected = '<example.com>; rel=example; title="example%22 the single quote"'
     assert.deepEqual( link.toString(), expected )
   })
 
   test( 'format attr value with multi-byte char', function() {
-    var link = new Link().set({ uri: 'example.com', rel: 'example with ⅓' })
-    var expected = '<example.com>; rel="example with %E2%85%93"'
+    var link = new Link().set({ uri: 'example.com', rel: 'example', title: 'example with ⅓' })
+    var expected = '<example.com>; rel=example; title="example with %E2%85%93"'
     assert.deepEqual( link.toString(), expected )
   })
 
