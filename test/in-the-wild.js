@@ -13,7 +13,7 @@ suite( 'Link Headers In the Wild', function() {
       uri: 'https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf',
       rel: 'terms-of-service'
     }]
-    // console.log( inspect( link ) )
+    // inspect.log( link )
     assert.deepEqual( link.refs, refs )
   })
 
@@ -22,19 +22,11 @@ suite( 'Link Headers In the Wild', function() {
     var refs = [{
       uri: 'https://api.github.com/user/repos?page=3&per_page=100',
       rel: 'next',
-      params: {
-        page: "3",
-        per_page: "100",
-      }
     }, {
       uri: 'https://api.github.com/user/repos?page=50&per_page=100',
       rel: 'last',
-      params: {
-        page: "50",
-        per_page: "100",
-      }
     }]
-    // console.log( inspect( link ) )
+    // inspect.log( link )
     assert.deepEqual( link.refs, refs )
   })
 
