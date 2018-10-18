@@ -1,7 +1,9 @@
 .*
 *.md
 *.log
-doc
-test
-example
+
 benchmark
+doc
+example
+test
+scripts
