@@ -15,6 +15,10 @@
     "header"
   ],
   "main": "lib/link.js",
+  "scripts": {
+    "benchmark": "node benchmark",
+    "test": "mocha --ui tdd"
+  },
   "dependencies": {},
   "devDependencies": {
     "mocha": "^5.2.0",
@@ -28,11 +32,7 @@
   "bugs": {
     "url": "https://github.com/jhermsmeier/node-http-link-header/issues"
   },
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "benchmark": "node benchmark",
-    "test": "mocha --ui tdd"
+  "engines": {
+    "node": ">=4.0.0"
   }
 }
