@@ -6,7 +6,6 @@
 
 Parse & format HTTP link headers according to [RFC 8288]
 
-[RFC 5988]: https://tools.ietf.org/html/rfc5988
 [RFC 8288]: https://tools.ietf.org/html/rfc8288
 
 ## Install via [npm](https://npmjs.com)
@@ -21,7 +20,7 @@ $ npm install --save http-link-header
 var LinkHeader = require( 'http-link-header' )
 ```
 
-**Parse a HTTP link header**
+**Parsing a HTTP link header**
 
 ```js
 var link = LinkHeader.parse(
@@ -37,14 +36,14 @@ var link = LinkHeader.parse(
 }
 ```
 
-**Check whether it has a reference with a given attribute & value**
+**Checking whether it has a reference with a given attribute & value**
 
 ```js
 link.has( 'rel', 'alternate' )
 > true
 ```
 
-**Retrieve a reference with a given attribute & value**
+**Retrieving a reference with a given attribute & value**
 
 ```js
 link.get( 'rel', 'alternate' )
@@ -60,7 +59,7 @@ link.rel( 'alternate' )
 ]
 ```
 
-**Set references**
+**Setting references**
 
 ```js
 link.set({ rel: 'next', uri: 'http://example.com/next' })
@@ -73,19 +72,19 @@ link.set({ rel: 'next', uri: 'http://example.com/next' })
 }
 ```
 
-**Parse multiple headers**
+**Parsing multiple headers**
 
 ```js
-var links = new LinkHeader()
+var link = new LinkHeader()
 
-links.parse( '<example.com>; rel="example"; title="Example Website"' )
+link.parse( '<example.com>; rel="example"; title="Example Website"' )
 > Link {
   refs: [
     { uri: 'example.com', rel: 'example', title: 'Example Website' },
   ]
 }
 
-links.parse( '<example-01.com>; rel="alternate"; title="Alternate Example Domain"' )
+link.parse( '<example-01.com>; rel="alternate"; title="Alternate Example Domain"' )
 > Link {
   refs: [
     { uri: 'example.com', rel: 'example', title: 'Example Website' },
@@ -93,7 +92,7 @@ links.parse( '<example-01.com>; rel="alternate"; title="Alternate Example Domain
   ]
 }
 
-links.parse( '<example-02.com>; rel="alternate"; title="Second Alternate Example Domain"' )
+link.parse( '<example-02.com>; rel="alternate"; title="Second Alternate Example Domain"' )
 > Link {
   refs: [
     { uri: 'example.com', rel: 'example', title: 'Example Website' },
@@ -103,11 +102,25 @@ links.parse( '<example-02.com>; rel="alternate"; title="Second Alternate Example
 }
 ```
 
-**Stringify to HTTP header format**
+**Handling extended attributes**
+
+```js
+link.parse( '</extended-attr-example>; rel=start; title*=UTF-8\'en\'%E2%91%A0%E2%93%AB%E2%85%93%E3%8F%A8%E2%99%B3%F0%9D%84%9E%CE%BB' )
+```
+
+```js
+> Link {
+  refs: [
+    { uri: '/extended-attr-example', rel: 'start', 'title*': { language: 'en', encoding: null, value: '①⓫⅓㏨♳𝄞λ' } }
+  ]
+}
+```
+
+**Stringifying to HTTP header format**
 
 ```js
 link.toString()
-> '<example.com>; rel="example"; title="Example Website", <example-01.com>; rel="alternate"; title="Alternate Example Domain"'
+> '<example.com>; rel=example; title="Example Website", <example-01.com>; rel=alternate; title="Alternate Example Domain"'
 ```
 
 ## Speed
@@ -117,9 +130,9 @@ $ npm run benchmark
 ```
 
 ```
-# http-link-header .parse() ⨉ 100000
-ok ~773 ms (0 s + 772540048 ns)
+# http-link-header .parse() ⨉ 1000000
+ok ~1.29 s (1 s + 289696759 ns)
 
-# http-link-header #toString() ⨉ 100000
-ok ~92 ms (0 s + 91910128 ns)
+# http-link-header #toString() ⨉ 1000000
+ok ~554 ms (0 s + 553782657 ns)
 ```
