@@ -1,7 +1,7 @@
 var bench = require( 'nanobench' )
 var Link = require( '..' )
 
-var ITERATIONS = 100000
+var ITERATIONS = 1000000
 
 bench( `http-link-header .parse() ⨉ ${ITERATIONS}`, function( run ) {
 
