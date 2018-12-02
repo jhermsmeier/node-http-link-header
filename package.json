@@ -17,12 +17,13 @@
   "main": "lib/link.js",
   "scripts": {
     "benchmark": "node benchmark",
-    "test": "mocha --ui tdd"
+    "test": "nyc mocha --ui tdd"
   },
   "dependencies": {},
   "devDependencies": {
     "mocha": "^5.2.0",
-    "nanobench": "^2.1.1"
+    "nanobench": "^2.1.1",
+    "nyc": "^13.1.0"
   },
   "homepage": "https://github.com/jhermsmeier/node-http-link-header",
   "repository": {
@@ -34,5 +35,11 @@
   },
   "engines": {
     "node": ">=4.0.0"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
   }
 }
