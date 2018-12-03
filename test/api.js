@@ -25,7 +25,13 @@ suite( 'API', function() {
   test( 'has("rel", "next")', function() {
     var link = Link.parse( '<https://acme-staging.api.letsencrypt.org/acme/new-authz>;rel="next", <https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf>;rel="terms-of-service"' )
     // console.log( inspect( link.has( 'rel', 'next' ) ) )
-    assert.deepEqual( link.has( 'next' ), true )
+    assert.deepEqual( link.has( 'rel', 'next' ), true )
+  })
+
+  test( 'has("rel", "prev")', function() {
+    var link = Link.parse( '<https://acme-staging.api.letsencrypt.org/acme/new-authz>;rel="next", <https://letsencrypt.org/documents/LE-SA-v1.1.1-August-1-2016.pdf>;rel="terms-of-service"' )
+    // console.log( inspect( link.has( 'rel', 'prev' ) ) )
+    assert.deepEqual( link.has( 'rel', 'prev' ), false )
   })
 
   test( 'toString()', function() {
