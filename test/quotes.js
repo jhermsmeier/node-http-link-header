@@ -71,8 +71,8 @@ suite( 'Attributes', function() {
   })
 
   test( 'format attr value with double quote', function() {
-    var link = new Link().set({ uri: 'example.com', rel: 'example', title: 'example" the single quote' })
-    var expected = '<example.com>; rel=example; title="example%22 the single quote"'
+    var link = new Link().set({ uri: 'example.com', rel: 'example', title: 'example" the double quote' })
+    var expected = '<example.com>; rel=example; title="example%22 the double quote"'
     assert.deepEqual( link.toString(), expected )
   })
 
