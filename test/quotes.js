@@ -1,8 +1,9 @@
+var { context, test } = require( '@jhermsmeier/control' )
 var assert = require( 'assert' )
 var inspect = require( './inspect' )
 var Link = require( '..' )
 
-suite( 'Attributes', function() {
+context( 'Attributes', function() {
 
   test( 'attribute with semicolon', function() {
     var link = Link.parse( '<http://example.com/quotes/semicolons>; rel="previous"; title="previous; chapter"' )

@@ -1,8 +1,9 @@
+var { context, test } = require( '@jhermsmeier/control' )
 var assert = require( 'assert' )
 var inspect = require( './inspect' )
 var Link = require( '..' )
 
-suite( 'HTTP Link Header', function() {
+context( 'HTTP Link Header', function() {
 
   test( 'standalone link (without rel)', function() {
     var link = Link.parse( '<example.com>' )
@@ -74,7 +75,7 @@ suite( 'HTTP Link Header', function() {
     assert.deepEqual( link.refs, refs )
   })
 
-  suite( 'toString()', function() {
+  context( 'toString()', function() {
 
     test( 'link with doublequote in anchor', function() {
       var link = new Link()

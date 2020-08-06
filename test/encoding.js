@@ -1,8 +1,9 @@
+var { context, test } = require( '@jhermsmeier/control' )
 var assert = require( 'assert' )
 var inspect = require( './inspect' )
 var Link = require( '..' )
 
-suite( 'Encodings', function() {
+context( 'Encodings', function() {
 
   test( 'UTF-8', function() {
     var link = Link.parse( '</risk-mitigation>; rel="start"; title*=UTF-8\'en\'%E2%91%A0%E2%93%AB%E2%85%93%E3%8F%A8%E2%99%B3%F0%9D%84%9E%CE%BB' )
