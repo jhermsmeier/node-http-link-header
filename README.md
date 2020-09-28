@@ -14,6 +14,15 @@ Parse & format HTTP link headers according to [RFC 8288]
 $ npm install --save http-link-header
 ```
 
+## Deviations from the RFC
+
+### Link Target
+
+While [RFC 8288, Section 3.1](https://tools.ietf.org/html/rfc8288#section-3.1) states that relative URI-References
+MUST be resolved by the parsers – this library DOES NOT.
+This is due to the parser not having an input for the absolute or canonical URI of the related document.
+Currently there are no plans to add this, and it is left to the user whether or not to resolve relative URIs.
+
 ## Usage
 
 ```js
