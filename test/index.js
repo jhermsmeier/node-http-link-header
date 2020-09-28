@@ -127,4 +127,15 @@ context( 'HTTP Link Header', function() {
     assert.strictEqual( link.toString(), expected )
   })
 
+  test( 'case sensitive relation types', function() {
+    var value = '<https://some.url>; rel="http://some.rel/caseSensitive"'
+    var expected = '<https://some.url>; rel="http://some.rel/caseSensitive"'
+    var refs = [ { uri: 'https://some.url', rel: 'http://some.rel/caseSensitive' } ]
+    var link = Link.parse( value )
+    // Check that comparison is case-insensitive, as specified in RFC8288, Section 2.2.1
+    assert.deepEqual( link.rel( 'http://some.rel/casesensitive' ), refs )
+    // Verify that re-serialization maintains input casing
+    assert.strictEqual( link.toString(), expected )
+  })
+
 })
