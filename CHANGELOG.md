@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.0.3
+
+- link: Fix parsing of refs with multiple rel types
+- link: Quote attribute values containing invalid token chars
+- doc: Add note about relative URIs in link targets
+- link: Fix case-sensitivity of extension relation types
+- test: Use RFC 8288 examples, replace mocha with control
+- test: Correct single -> double quote description
+
 ## v1.0.2
 
 - Make `.get()` have a consistent return type ([@dhui])
