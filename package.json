@@ -21,7 +21,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@jhermsmeier/control": "^1.1.1",
+    "@jhermsmeier/control": "^1.2.0",
     "nanobench": "^2.1.1"
   },
   "homepage": "https://github.com/jhermsmeier/node-http-link-header",
