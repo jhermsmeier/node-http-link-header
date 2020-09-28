@@ -28,20 +28,30 @@ context( 'Attributes', function() {
   })
 
   test( 'multiple links with mixed comma & semicolon', function() {
-    var link = Link.parse( '<example.com>; rel="example, the second", <example-01.com>; rel="alternate; version"' )
+    var link = Link.parse( '<example.com>; rel="example,comma", <example-01.com>; rel="alternate;semicolon"' )
     var refs = [
-      { uri: 'example.com', rel: 'example, the second' },
-      { uri: 'example-01.com', rel: 'alternate; version' },
+      { uri: 'example.com', rel: 'example,comma' },
+      { uri: 'example-01.com', rel: 'alternate;semicolon' },
     ]
     // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
   })
 
   test( 'multiple links with mixed comma & semicolon', function() {
-    var link = Link.parse( '<example.com>; rel="example; the second", <example-01.com>; rel="alternate, version"' )
+    var link = Link.parse( '<example.com>; rel="example;semicolon", <example-01.com>; rel="alternate,comma"' )
     var refs = [
-      { uri: 'example.com', rel: 'example; the second' },
-      { uri: 'example-01.com', rel: 'alternate, version' },
+      { uri: 'example.com', rel: 'example;semicolon' },
+      { uri: 'example-01.com', rel: 'alternate,comma' },
+    ]
+    // console.log( inspect( link ) )
+    assert.deepEqual( link.refs, refs )
+  })
+
+  test( 'multiple rel types with semicolon', function() {
+    var link = Link.parse( '<example.com>; rel="example; start"' )
+    var refs = [
+      { uri: 'example.com', rel: 'example;' },
+      { uri: 'example.com', rel: 'start' },
     ]
     // console.log( inspect( link ) )
     assert.deepEqual( link.refs, refs )
