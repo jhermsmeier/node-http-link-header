@@ -33,6 +33,6 @@
     "url": "https://github.com/jhermsmeier/node-http-link-header/issues"
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=6.0.0"
   }
 }
