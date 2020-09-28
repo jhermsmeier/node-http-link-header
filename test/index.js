@@ -103,7 +103,7 @@ context( 'HTTP Link Header', function() {
     })
 
     test( 'type should not be URL encoded', function() {
-      var value = '</foo>; rel=alternate; type=application/hal+json'
+      var value = '</foo>; rel=alternate; type="application/hal+json"'
       var link = Link.parse( value )
       var refs = [
         { uri: '/foo', rel: 'alternate', type: 'application/hal+json' }
@@ -116,8 +116,8 @@ context( 'HTTP Link Header', function() {
   })
 
   test( 'handle varying attribute cardinality', function() {
-    var value = '</example>; rel=alternate; hreflang=en-US; hreflang=de; type=text/html; media=screen; media="should be ignored"'
-    var expected = '</example>; rel=alternate; hreflang=en-US; hreflang=de; type=text/html; media=screen'
+    var value = '</example>; rel=alternate; hreflang=en-US; hreflang=de; type="text/html"; media=screen; media="should be ignored"'
+    var expected = '</example>; rel=alternate; hreflang=en-US; hreflang=de; type="text/html"; media=screen'
     var link = Link.parse( value )
     var refs = [
       { uri: '/example', rel: 'alternate', hreflang: [ 'en-US', 'de' ], type: 'text/html', media: 'screen' }
