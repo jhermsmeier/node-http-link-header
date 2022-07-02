@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.0.5
+
+- Allow an empty language section in extended header encoding. ([@qubyte])
+
+## v1.0.4
+
+- Replace NBSP with normal space ([@angelo-v])
+
 ## v1.0.3
 
 - link: Fix parsing of refs with multiple rel types
@@ -37,3 +45,5 @@
 
 [@ykzts]: https://github.com/ykzts
 [@dhui]: https://github.com/dhui
+[@qubyte]: https://github.com/qubyte
+[@angelo-v]: https://github.com/angelo-v
