@@ -35,4 +35,18 @@ context( 'Encodings', function() {
     assert.deepEqual( link.refs, refs )
   })
 
+  test( 'language optional', function() {
+    var link = Link.parse( '</risk-mitigation>; rel="start"; title*=UTF-8\'\'%E2%91%A0%E2%93%AB%E2%85%93%E3%8F%A8%E2%99%B3%F0%9D%84%9E%CE%BB' )
+    var refs = [{
+      uri: '/risk-mitigation',
+      rel: 'start',
+      'title*': {
+        language: '',
+        encoding: null,
+        value: '①⓫⅓㏨♳𝄞λ'
+      },
+    }]
+    // console.log( inspect( link ) )
+    assert.deepEqual( link.refs, refs )
+  })
 })
