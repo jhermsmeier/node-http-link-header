@@ -84,6 +84,33 @@ context( 'API', function() {
     })
   })
 
+  test( 'setUnique()', function() {
+    var link = new Link()
+    link.setUnique( { uri: 'https://example.com/a', rel: 'preconnect' } )
+    assert.deepEqual(
+      link.refs,
+      [
+        { uri: 'https://example.com/a', rel: 'preconnect' }
+      ]
+    )
+    link.setUnique( { uri: 'https://example.com/b', rel: 'preconnect' } )
+    assert.deepEqual(
+      link.refs,
+      [
+        { uri: 'https://example.com/a', rel: 'preconnect' },
+        { uri: 'https://example.com/b', rel: 'preconnect' }
+      ]
+    )
+    link.setUnique( { uri: 'https://example.com/a', rel: 'preconnect' } )
+    assert.deepEqual(
+      link.refs,
+      [
+        { uri: 'https://example.com/a', rel: 'preconnect' },
+        { uri: 'https://example.com/b', rel: 'preconnect' }
+      ]
+    )
+  })
+
   test( 'parse() multiple', function() {
 
     var links = new Link()

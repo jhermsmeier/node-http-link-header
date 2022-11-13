@@ -1,5 +1,9 @@
 # Changelog
 
+## Next
+
+- Added the class `Link` method `setUnique` ([@jaydenseric])
+
 ## v1.0.5
 
 - Allow an empty language section in extended header encoding. ([@qubyte])
@@ -47,3 +51,4 @@
 [@dhui]: https://github.com/dhui
 [@qubyte]: https://github.com/qubyte
 [@angelo-v]: https://github.com/angelo-v
+[@jaydenseric]: https://github.com/jaydenseric

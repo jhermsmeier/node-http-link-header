@@ -71,12 +71,40 @@ link.rel( 'alternate' )
 ### Setting references
 
 ```js
-link.set({ rel: 'next', uri: 'http://example.com/next' })
+link.set({ uri: 'https://example.com/next', rel: 'next' })
 > Link {
   refs: [
     { uri: 'example.com', rel: 'example', title: 'Example Website' },
     { uri: 'example-01.com', rel: 'alternate', title: 'Alternate Example Domain' },
-    { rel: 'next', uri: 'http://example.com/next' }
+    { rel: 'next', uri: 'https://example.com/next' }
+  ]
+}
+```
+
+### Setting a unique reference
+
+```js
+link.setUnique({
+  uri: 'https://example.com/image.png',
+  rel: 'preload',
+  as: 'image',
+  type: 'image/png'
+})
+> Link {
+  refs: [
+    { uri: 'https://example.com/image.png', rel: 'preload', as: 'image', type: 'image/png' }
+  ]
+}
+
+link.setUnique({
+  uri: 'https://example.com/image.png',
+  rel: 'preload',
+  as: 'image',
+  type: 'image/png'
+})
+> Link {
+  refs: [
+    { uri: 'https://example.com/image.png', rel: 'preload', as: 'image', type: 'image/png' }
   ]
 }
 ```
