@@ -19,6 +19,13 @@ context( 'HTTP Link Header', function() {
     assert.deepEqual( link.refs, refs )
   })
 
+  test( 'link with nopush', function() {
+    var link = Link.parse( '<example.com>; nopush' )
+    var refs = [ { uri: 'example.com', nopush: '' } ]
+    // inspect.log( link )
+    assert.deepEqual( link.refs, refs )
+  })
+
   test( 'link with quoted rel', function() {
     var link = Link.parse( '<example.com>; rel="example"' )
     var refs = [ { uri: 'example.com', rel: 'example' } ]
