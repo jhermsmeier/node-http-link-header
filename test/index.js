@@ -134,15 +134,39 @@ context( 'HTTP Link Header', function() {
     assert.strictEqual( link.toString(), expected )
   })
 
-  test( 'case sensitive relation types', function() {
+  test( 'case insensitive relation types includes', function() {
     var value = '<https://some.url>; rel="http://some.rel/caseSensitive"'
     var expected = '<https://some.url>; rel="http://some.rel/caseSensitive"'
     var refs = [ { uri: 'https://some.url', rel: 'http://some.rel/caseSensitive' } ]
     var link = Link.parse( value )
-    // Check that comparison is case-insensitive, as specified in RFC8288, Section 2.2.1
-    assert.deepEqual( link.rel( 'http://some.rel/casesensitive' ), refs )
+
+    // Check that comparison is case-insensitive, as specified in RFC8288, Sections 2.1.1, 2.1.2
+    assert.strictEqual( link.has( 'rel', 'http://some.rel/casesensitive' ), true )
     // Verify that re-serialization maintains input casing
     assert.strictEqual( link.toString(), expected )
   })
 
+  test( 'case insensitive relation types by reference', function() {
+    var value = '<https://some.url>; rel="http://some.rel/caseSensitive"'
+    var expected = '<https://some.url>; rel="http://some.rel/caseSensitive"'
+    var refs = [ { uri: 'https://some.url', rel: 'http://some.rel/caseSensitive' } ]
+    var link = Link.parse( value )
+
+    // Check that comparison is case-insensitive, as specified in RFC8288, Sections 2.1.1, 2.1.2
+    assert.deepEqual( link.get( 'rel', 'http://some.rel/casesensitive' ), refs )
+    // Verify that re-serialization maintains input casing
+    assert.strictEqual( link.toString(), expected )
+  })
+
+  test( 'case insensitive relation types by reference shorthand', function() {
+    var value = '<https://some.url>; rel="http://some.rel/caseSensitive"'
+    var expected = '<https://some.url>; rel="http://some.rel/caseSensitive"'
+    var refs = [ { uri: 'https://some.url', rel: 'http://some.rel/caseSensitive' } ]
+    var link = Link.parse( value )
+
+    // Check that comparison is case-insensitive, as specified in RFC8288, Section 2.1.1, 2.1.2
+    assert.deepEqual( link.rel( 'http://some.rel/casesensitive' ), refs )
+    // Verify that re-serialization maintains input casing
+    assert.strictEqual( link.toString(), expected )
+  })
 })
