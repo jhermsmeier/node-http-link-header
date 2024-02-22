@@ -1,0 +1,6 @@
+.*
+
+!.github
+!.gitignore
+!.npmignore
+!.npmrc
