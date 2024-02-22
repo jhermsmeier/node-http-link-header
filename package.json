@@ -17,12 +17,11 @@
   "main": "lib/link.js",
   "scripts": {
     "benchmark": "node benchmark",
-    "test": "control test"
+    "test": "control"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@jhermsmeier/control": "^1.3.0",
-    "nanobench": "^2.1.1"
+    "@jhermsmeier/control": "2.0.0",
+    "nanobench": "2.1.1"
   },
   "homepage": "https://github.com/jhermsmeier/node-http-link-header",
   "repository": {

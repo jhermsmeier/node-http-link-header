@@ -1,4 +1,3 @@
-var { context, test } = require( '@jhermsmeier/control' )
 var assert = require( 'assert' )
 var inspect = require( './inspect' )
 var Link = require( '..' )
