@@ -20,7 +20,7 @@
     "test": "control"
   },
   "devDependencies": {
-    "@jhermsmeier/control": "2.0.1",
+    "@jhermsmeier/control": "2.0.2",
     "nanobench": "2.1.1"
   },
   "homepage": "https://github.com/jhermsmeier/node-http-link-header",
