@@ -140,4 +140,34 @@ context( 'API', function() {
 
   })
 
+  // NOTE: While empty relations are non-compliant,
+  // these tests are here to ensure that the rel comparison
+  // doesn't fluke out on empty strings / falsy values
+  context( 'Attribute Value Comparisons', () => {
+    context( 'Empty Relations', () => {
+
+      test( 'has("rel", "")', function() {
+        var link = Link.parse( '<example.com>; rel=' )
+        assert.deepEqual( link.has( 'rel', '' ), true )
+      })
+
+      test( 'get("rel", "")', function() {
+        var link = Link.parse( '<example.com>; rel=' )
+        assert.deepEqual( link.get( 'rel', '' )[0], {
+          uri: 'example.com',
+          rel: ''
+        })
+      })
+
+      test( 'rel("")', function() {
+        var link = Link.parse( '<example.com>; rel=' )
+        assert.deepEqual( link.rel( '' )[0], {
+          uri: 'example.com',
+          rel: ''
+        })
+      })
+
+    })
+  })
+
 })

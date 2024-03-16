@@ -18,6 +18,15 @@ context( 'HTTP Link Header', function() {
     assert.deepEqual( link.refs, refs )
   })
 
+  // NOTE: Empty relations are non-compliant, but will not throw;
+  // to be checked & handled by the consuming code
+  test( 'link with empty rel', function() {
+    var link = Link.parse( '<example.com>; rel=' )
+    var refs = [ { uri: 'example.com', rel: '' } ]
+    // inspect.log( link )
+    assert.deepEqual( link.refs, refs )
+  })
+
   test( 'link with nopush', function() {
     var link = Link.parse( '<example.com>; nopush' )
     var refs = [ { uri: 'example.com', nopush: '' } ]
